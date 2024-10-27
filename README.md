@@ -12,9 +12,9 @@ Kho lưu trữ này chứa mã cho hệ thống phân tích cổ phiếu theo th
 ## Thành phần
 
 - **main.py**: Đây là tập lệnh Python chính.Có nhiệm vụ lấy dữ liệu cổ phiếu (chọn nhà cung cấp) từ thư viện vnstock3.Sau đó biến đổi (Transform) phù hợp để send vào Kafka.
-- **ride.py**: Đây là tập lệnh với mục đích chủ yếu để tạo 1 class phục vụ cho việc biến đổi dữ liệu để lưu vào kafka
+- **ride.py**: Đây là tập lệnh với mục đích chủ yếu là tạo 1 class phục vụ cho việc biến đổi dữ liệu để lưu vào kafka
 - **spark_streaming.py**: Đây là tập lệnh với mục đích xử lý dữ liệu trực tiếp.Gồm những nhiệm vụ như đọc dữ liệu trực tiếp từ topic kafka,tạo những table trong cơ sở dữ liệu Postgres,biến đổi dataframe thành những dữ liệu mong muốn rồi lưu (**writeStream**) vào trong những bảng vừa tạo.Rồi đống dữ liệu đó, chúng ta sẽ bắt đầu setup **Apache Grafana** để tiến hành trực quan hoá - phân tích dữ liệu.
-- **docker-compose.yml**: Đây là tệp lệnh để setup môi trường cần có trong project này bằng docker
+- **docker-compose.yml**: Đây là tệp lệnh để setup môi trường cần có trong project này bằng docker.
 
 ## Cài Đặt
 
@@ -26,18 +26,35 @@ Kho lưu trữ này chứa mã cho hệ thống phân tích cổ phiếu theo th
 
 1. Clone repository:
     ```bash
-    git clone https://github.com/username/project-name.git
+    git clone https://github.com/HaiAnhDuy/Realtime-Stock.git
     cd project-name
     ```
-2. Cài đặt các thư viện phụ thuộc:
+2. Cài đặt các môi trường phụ thuộc:
     ```bash
-    pip install -r requirements.txt
+    docker compose up -d
+    ```
+3. Xem các table có trong Postgres (đảm bảo đang chạy docker):
+   ```bash
+    docker exec -it postgres bash
+    psql -U postgres -d voting;
+    \d
+    ```
+4. Xem dữ liệu có trong Kafka (đảm bảo đang chạy docker):
+   ```bash
+    docker exec -it broker bash
+    kafka-console-consumer --bootstrap-server localhost:29092 --topic stock_topic --from-beginning
     ```
 
 ## Hướng Dẫn Sử Dụng
-
-Hướng dẫn chi tiết cách sử dụng dự án, bao gồm các ví dụ chạy và giải thích các tham số chính.
-
+1.Chạy file **main.py**:
 Ví dụ:
 ```bash
-python main.py --option value
+python main.py
+```
+2.Chạy file **spark_streaming.py** (chạy song song 2 file):
+Ví dụ:
+```bash
+python spark_streaming.py
+```
+3.Truy cập đường dẫn localhost:3000 để xem biểu đồ, phân tích dữ liệu (tk:admin; mk:admin)
+
