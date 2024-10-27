@@ -57,4 +57,14 @@ Ví dụ:
 python spark_streaming.py
 ```
 3.Truy cập đường dẫn localhost:3000 để xem biểu đồ, phân tích dữ liệu (tk:admin; mk:admin)
+Ví dụ:
+- **Giá cổ phiếu trung bình trong 1 ngày**
+![vag_by_day](https://github.com/user-attachments/assets/84a5b8e2-bfad-4498-8a1b-c11773d72db1)
+- **Xu Hướng Cổ Phiếu (Dựa trên Open và Close)**
+![trend_by_day](https://github.com/user-attachments/assets/02511aa7-8d4e-42b2-8542-5511b5e8efd6)
+- **Khối lượng giao dịch cổ phiếu theo tháng**
+![volume_by_months](https://github.com/user-attachments/assets/0fffe2ba-d881-48c8-8075-9b5ec6991838)
+- **Kiểm tra cổ phiếu có tăng đột biến theo tuần(tính theo 5 ngày thay vì 7 ngày vì sàn giao dịch đóng cửa thứ 7 và chủ nhật)**
+![mutation_check_5_days](https://github.com/user-attachments/assets/6b16f2b8-f200-452a-8ec4-428bd8ff5371)
+
 
