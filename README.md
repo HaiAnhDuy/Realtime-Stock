@@ -1,13 +1,13 @@
-# Tên Dự Án
+# Hệ Thống Phân Tích Cổ Phiếu Realtime
 
-Miêu tả ngắn gọn về dự án, mục đích và những tính năng chính của nó.
+Kho lưu trữ này chứa mã cho hệ thống phân tích cổ phiếu theo thời gian thực. Hệ thống được xây dựng bằng **Python**, **Kafka**, **Spark Streaming**, **Postgres** và **Âpche Grafana**. Môi trường được xây dựng bằng Docker Compose để dễ dàng tạo các dịch vụ cần thiết trong các container Docker.
 
 ---
 
 
-## Giới Thiệu
+## Kiến Trúc
 
-Đưa ra giới thiệu chi tiết hơn về dự án, lý do bạn tạo ra nó, các vấn đề dự án này giải quyết, và mục tiêu bạn hướng đến.
+![image](https://github.com/user-attachments/assets/302a2dc0-9581-4804-848d-d0d76fa7e6c3)
 
 ## Các Tính Năng
 
