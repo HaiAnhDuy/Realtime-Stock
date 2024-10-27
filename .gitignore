@@ -1,4 +1,0 @@
-# Ignore compiled Python files
-__pycache__/
-*.pyc
-postgresql-42.7.3.jarZone.Identifier
